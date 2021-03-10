@@ -1,0 +1,29 @@
+<div class="d-md-flex gap-3 mt-3">
+    <div class="w-60">
+        <div class="d-flex">
+            <div class="w-50 me-3">
+                <label for="foodName" class="form-label">Food</label>
+                <input type="text" class="form-control" [(ngModel)]="foodName">
+            </div>
+            <div class="w-50 me-3">
+                <label for="foodPrice" class="form-label">Price</label>
+                <input type="number" class="form-control" [(ngModel)]="foodPrice">
+            </div>
+        </div>
+        <button class="btn btn-primary align-self-end my-2" (click)="addCustomFood()">Add to order</button>
+        <div class="d-flex flex-wrap gap-3 justify-content-center">
+            <app-menu-button *ngFor="let food of defaultMenu" name='{{food.name}}' price='{{food.price}}' (click)="addFood(food)"></app-menu-button>
+        </div>
+        <a [routerLink]="['/show']" class="btn btn-warning w-100 my-3">Check</a>
+    </div>
+    <table class="table w-40 table-light">
+        <caption>Current order</caption>
+        <thead><tr><th>food</th><th>price</th><th>action</th></tr></thead>
+        <tbody>
+            <tr *ngFor="let food of order; index as i"><td>{{food.name}}</td><td>{{food.price | currency:'USD'}}</td>
+                <td><button class="btn btn-outline-danger" (click)="removeFood(i)">remove</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

@@ -1,0 +1,12 @@
+<table class="table table-light mt-3">
+    <thead><tr><th>food</th><th>price</th></tr></thead>
+    <tbody>
+        <tr *ngFor="let food of order"><td>{{food.name}}</td><td>{{food.price | currency:'USD'}}</td></tr>
+        
+        <tr class="table-dark"><td class="text-bold">total</td><td>{{total | currency : 'USD'}}</td></tr>
+        
+        <tr class="table-dark"><td class="text-bold">total + tax</td><td>{{total | tax | currency : 'USD'}}</td></tr>
+    </tbody>
+
+</table>
+<a [routerLink]="['/order']" class="btn btn-primary">Back</a>
