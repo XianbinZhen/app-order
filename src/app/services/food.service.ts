@@ -7,7 +7,10 @@ import { Food } from '../models/food';
 })
 export class FoodService {
 
-  order:Food[] = [];
+  order: Food[] = [];
+  table: Food[][] = [[]];
+  tableNumber: number = 0;
+  tableTotal: number = 1;
 
   defaultMenu: Food[] = [
     {name: 'Chicken Sandwich Meal', price: 9.59},

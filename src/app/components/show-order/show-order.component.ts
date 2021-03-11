@@ -11,9 +11,11 @@ export class ShowOrderComponent implements OnInit {
 
   order:Food[] = [];
   total:number = 0;
+  tableNumber: number = 0;
 
   constructor(private foodService:FoodService) { 
-    this.order = this.foodService.order;
+    this.tableNumber = this.foodService.tableNumber;
+    this.order = this.foodService.table[this.tableNumber];
     this.order.forEach( e => {
       this.total += e.price;
     });
