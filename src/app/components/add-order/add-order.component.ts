@@ -53,6 +53,7 @@ export class AddOrderComponent implements OnInit {
 
   changeTable(num:number): void {
     this.tableNumber = num;
+    this.foodService.tableNumber = num;
     this.order = this.foodService.table[this.tableNumber];
   }
 
